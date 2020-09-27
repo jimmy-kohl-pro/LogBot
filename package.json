@@ -1,0 +1,11 @@
+{
+	"name": "logger-bot",
+	"version": "1.0.0",
+	"description": "Log a server",
+	"main": "index.js",
+	"author": "Jimmy KOHL",
+	"dependencies": {
+		"discord.js": "^12.2.0",
+		"jquery": "^3.5.1"
+	}
+}
