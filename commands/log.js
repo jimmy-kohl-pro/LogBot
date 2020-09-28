@@ -1,5 +1,8 @@
-function getAllMessagesOfChannel() {
-    
+async function getMessageInfo(messages, messageId, messageList) {
+    var msg = await messages.fetch(messageId);
+    if (msg) {
+
+    }
 }
 
 module.exports = {
@@ -12,19 +15,22 @@ module.exports = {
             // console.log(channels_list);
             for (let messages of channels_list) {
                 let messageList = [];
-                var done = false;
-                while (!done) {
-                    mess
-                }
-                messages.fetch('758723873541193799').then(async messages => {
-                    // let msg = messages.array().reverse();
-                    // console.log(msg);
-                    console.log(messages);
-                    // console.log(messages.map(c => c.content));
-                }).catch(console.error);
-                // console.log(channel);
+                let size = 0;
+                let before_id = null;
+                do {
+                    await messages.fetch({limit : 100, before : before_id}).then(msgList => {
+                        messageList = [...messageList, ...msgList.array().map(c => {
+                            console.log(c.content);
+                            return {content : c.content, author : c.author.username};
+                        })];
+                        before_id = msgList.last().id;
+                        size = msgList.size;
+                    });
+                } while (size === 100);
+                console.log(messageList);
+                break;
             }
-            message.channel.send('There you are !', { files: ['./log/logilolg.zip'] });
+            // message.channel.send('There you are !', { files: ['./log/logilolg.zip'] });
         } catch (error) {
             message.channel.send('An error occure. \u{1F613}');
             console.log(error);
