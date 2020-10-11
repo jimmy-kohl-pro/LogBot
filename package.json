@@ -1,11 +1,13 @@
 {
-	"name": "logger-bot",
+	"name": "ust674",
 	"version": "1.0.0",
 	"description": "Log a server",
 	"main": "index.js",
 	"author": "Jimmy KOHL",
 	"dependencies": {
+		"archiver": "^5.0.2",
 		"discord.js": "^12.2.0",
+		"filenamify": "^4.2.0",
 		"jquery": "^3.5.1"
 	}
 }

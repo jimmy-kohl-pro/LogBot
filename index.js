@@ -5,8 +5,8 @@ const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
 client.on('ready', async () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setActivity("!:log to save log");
+  console.log(`Connecté en tant que ${client.user.tag}!`);
+  client.user.setActivity("!log pour sauvegarder les logs.");
 });
 
 const command_files = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
